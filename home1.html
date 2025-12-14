@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home - Patent Filing Portal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "accent": "#f59e0b",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-200 font-display transition-colors duration-200">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Header -->
+<div id="header-placeholder"></div>
+
+<main class="layout-container flex h-full grow flex-col py-8 px-4 md:px-10 lg:px-20">
+<div class="flex flex-col gap-8 max-w-[1200px] mx-auto w-full">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-[#0d141b] dark:text-white tracking-tight text-[32px] font-bold leading-tight">Welcome back, Alex!</h1>
+<p class="text-[#4c739a] dark:text-slate-400 text-base font-normal leading-normal">Here is an overview of your patent filing activities.</p>
+</div>
+<a href="application_pg1.html" class="h-12 px-6 rounded-lg bg-primary hover:bg-blue-600 text-white font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Start New Application</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-[#e7edf3] dark:border-slate-700 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[#4c739a] dark:text-slate-400 text-sm font-semibold">Total Applications</span>
+<div class="size-8 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">folder_copy</span>
+</div>
+</div>
+<span class="text-[#0d141b] dark:text-white text-3xl font-bold">12</span>
+<span class="text-[#4c739a] dark:text-slate-500 text-xs">All time submissions</span>
+</div>
+<div class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-[#e7edf3] dark:border-slate-700 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[#4c739a] dark:text-slate-400 text-sm font-semibold">In Progress</span>
+<div class="size-8 rounded-full bg-yellow-50 dark:bg-yellow-900/30 flex items-center justify-center text-accent">
+<span class="material-symbols-outlined text-[20px]">hourglass_top</span>
+</div>
+</div>
+<span class="text-[#0d141b] dark:text-white text-3xl font-bold">3</span>
+<span class="text-[#4c739a] dark:text-slate-500 text-xs">Awaiting completion</span>
+</div>
+<div class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-[#e7edf3] dark:border-slate-700 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[#4c739a] dark:text-slate-400 text-sm font-semibold">Approved</span>
+<div class="size-8 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+</div>
+<span class="text-[#0d141b] dark:text-white text-3xl font-bold">7</span>
+<span class="text-[#4c739a] dark:text-slate-500 text-xs">Successfully filed</span>
+</div>
+<div class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-[#e7edf3] dark:border-slate-700 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[#4c739a] dark:text-slate-400 text-sm font-semibold">Needs Attention</span>
+<div class="size-8 rounded-full bg-red-50 dark:bg-red-900/30 flex items-center justify-center text-red-500">
+<span class="material-symbols-outlined text-[20px]">error</span>
+</div>
+</div>
+<span class="text-[#0d141b] dark:text-white text-3xl font-bold">1</span>
+<span class="text-[#4c739a] dark:text-slate-500 text-xs">Requires your input</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h3 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight">Pending Actions</h3>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">View All</a>
+</div>
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#e7edf3] dark:border-slate-700 overflow-hidden shadow-sm">
+<div class="p-4 border-b border-[#e7edf3] dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 shrink-0">
+<span class="material-symbols-outlined">edit_document</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#0d141b] dark:text-white font-bold text-base">IoT Based Water Monitoring System</span>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm">App ID: #PAT-2023-089 • Requires Department Head Approval</span>
+</div>
+</div>
+<button class="px-4 py-2 rounded-lg border border-[#cfdbe7] dark:border-slate-600 text-[#0d141b] dark:text-slate-300 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
+                                    Review Details
+                                </button>
+</div>
+<div class="p-4 border-b border-[#e7edf3] dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 shrink-0">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#0d141b] dark:text-white font-bold text-base">Smart Grid Energy Optimization</span>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm">App ID: #PAT-2023-102 • Document Upload Pending</span>
+</div>
+</div>
+<button class="px-4 py-2 rounded-lg border border-[#cfdbe7] dark:border-slate-600 text-[#0d141b] dark:text-slate-300 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
+                                    Upload Docs
+                                </button>
+</div>
+<div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 shrink-0">
+<span class="material-symbols-outlined">feedback</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#0d141b] dark:text-white font-bold text-base">AI Driven Traffic Control</span>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm">App ID: #PAT-2023-045 • Feedback Received</span>
+</div>
+</div>
+<button class="px-4 py-2 rounded-lg border border-[#cfdbe7] dark:border-slate-600 text-[#0d141b] dark:text-slate-300 font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
+                                    View Feedback
+                                </button>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4">
+<h3 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight">Recent Applications</h3>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">View All History</a>
+</div>
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#e7edf3] dark:border-slate-700 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-[#4c739a] dark:text-slate-400 uppercase bg-slate-50 dark:bg-slate-800 border-b border-[#e7edf3] dark:border-slate-700">
+<tr>
+<th class="px-6 py-3 font-semibold">Title</th>
+<th class="px-6 py-3 font-semibold">Date Filed</th>
+<th class="px-6 py-3 font-semibold">Status</th>
+<th class="px-6 py-3 font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#e7edf3] dark:divide-slate-700">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Blockchain Voting System</td>
+<td class="px-6 py-4 text-[#4c739a] dark:text-slate-400">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                                                    Submitted
+                                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Track</a>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-[#0d141b] dark:text-white">Neural Network Compression</td>
+<td class="px-6 py-4 text-[#4c739a] dark:text-slate-400">Sep 12, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                                                    Under Review
+                                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Track</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h3 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight">Quick Links</h3>
+<div class="bg-white dark:bg-[#1a2632] rounded-xl border border-[#e7edf3] dark:border-slate-700 shadow-sm p-4 flex flex-col gap-2">
+<a class="group flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_box</span>
+</div>
+<div class="ml-4">
+<span class="block text-sm font-bold text-[#0d141b] dark:text-white">New Application</span>
+<span class="block text-xs text-[#4c739a] dark:text-slate-400">Start a fresh patent filing</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-400 group-hover:text-primary">chevron_right</span>
+</a>
+<a class="group flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">library_books</span>
+</div>
+<div class="ml-4">
+<span class="block text-sm font-bold text-[#0d141b] dark:text-white">Guidelines</span>
+<span class="block text-xs text-[#4c739a] dark:text-slate-400">Read filing policies</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-400 group-hover:text-primary">chevron_right</span>
+</a>
+<a class="group flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">download</span>
+</div>
+<div class="ml-4">
+<span class="block text-sm font-bold text-[#0d141b] dark:text-white">Templates</span>
+<span class="block text-xs text-[#4c739a] dark:text-slate-400">Download doc formats</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-400 group-hover:text-primary">chevron_right</span>
+</a>
+<a class="group flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div class="ml-4">
+<span class="block text-sm font-bold text-[#0d141b] dark:text-white">IPR Support</span>
+<span class="block text-xs text-[#4c739a] dark:text-slate-400">Contact legal cell</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-400 group-hover:text-primary">chevron_right</span>
+</a>
+</div>
+<div class="bg-gradient-to-br from-blue-900 to-primary rounded-xl p-6 text-white shadow-md relative overflow-hidden">
+<div class="absolute -top-6 -right-6 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-yellow-300">campaign</span>
+<span class="font-bold text-sm tracking-wide uppercase text-blue-100">Notice Board</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Upcoming Workshop</h4>
+<p class="text-sm text-blue-100 mb-4 leading-relaxed">
+                                Join us for a session on "Understanding Patent Claims" this Friday at 2:00 PM in the Main Auditorium.
+                            </p>
+<button class="w-full bg-white text-primary text-sm font-bold py-2 rounded-lg hover:bg-blue-50 transition-colors">
+                                Register Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<!-- <div id="footer-placeholder"></div>
+</div> -->
+
+<script>
+    // Load header from external file
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+
+    // Load footer from external file
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+</script>
+
+</body></html>

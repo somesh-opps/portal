@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Application Details Form - Patent Filing Portal</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>/* Custom Select Arrow for dark mode compatibility without JS SVG manipulation */
+select {
+    appearance: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBZZBUVGdBuP32zCFrFvA9Nv2BRXI1B0azWoJ1i40ZhDE-44JkPcsduz1BbXqNP4ANJ63u4p_TsqaRkTIz2Evfw9RqAmYqPsAtTCNJp9SkT0cwmIlf0rEgUyiw_PMTHnnaPy7DgLZ8UNRQnpUiimeIsUZVGSh-gVSYWoNg_SHTtQdeF7WF9v9rQTXVmBzcAfNBhP9xaFIAhPHZyaDMBTcgr6YtGUiAYiQNqHceXrmef0uqETVUw92a6HQhSvslM-Rky01GZwIwJ6zw);
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem
+    }
+.dark select {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCjXiOogEFo-QLcZm_s0ChkNCVOyng0qZhbN1WZY2IQlfkUAnKnfxr_kapDYUBtSW5bJvReGVwn3AcCIPBcZ7MnPizW0KBLGWc7afCDywQAroURu3zs4jbabb_HlE25SFxoaucq1qMsyq95NLcTDpL2Xq-CEXGo37eV5MQuS9ohVcenZfiX5HCC9WV6hBVdZJABbAU2VcxcTalbQ4FnA5Hhw5bDCq_dku3j3T9KscpwopQL4yoSiKJ6EDHqXSXoIBEXVBGVeFW6ouI)
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-200 font-display transition-colors duration-200">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Header -->
+<div id="header-placeholder"></div>
+<!-- Main Content -->
+<main class="layout-container flex h-full grow flex-col pt-28 pb-8 px-4 md:px-10 lg:px-40">
+<div class="flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 w-full gap-6">
+<!-- Breadcrumbs -->
+<nav class="flex flex-wrap gap-2 px-1">
+<a class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal hover:underline" href="#">Home</a>
+<span class="text-[#4c739a] dark:text-slate-500 text-sm font-medium leading-normal">/</span>
+<span class="text-[#0d141b] dark:text-white text-sm font-medium leading-normal">New Application</span>
+</nav>
+<!-- Page Heading -->
+<div class="flex flex-col gap-2 px-1">
+<h1 class="text-[#0d141b] dark:text-white tracking-tight text-[32px] font-bold leading-tight">Application Details</h1>
+<p class="text-[#4c739a] dark:text-slate-400 text-base font-normal leading-normal">Please fill in the details for your new patent application. Ensure all information is accurate before submission.</p>
+</div>
+<!-- Form Card -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-700 overflow-hidden">
+<div class="p-8 flex flex-col gap-8">
+<!-- Section: Institution Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Name of the Institution</span>
+<select id="institutionSelect" class="form-select flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 text-base focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow cursor-pointer">
+<option selected="" value="">Choose Institution</option>
+<option value="iem">Institute of Engineering &amp; Management, Saltlake</option>
+<option value="uem">Institute of Engineering &amp; Management, New Town</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Department Name</span>
+<select id="departmentSelect" class="form-select flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 text-base focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow cursor-pointer">
+<option selected="" value="">Choose Department</option>
+<option value="cst">Computer Science &amp; Technology</option>
+<option value="cse">Computer Science &amp; Engineering</option>
+<option value="ece">Electronics &amp; Communication Engineering</option>
+<option value="me">Mechanical Engineering</option>
+<option value="ee">Electrical Engineering</option>
+<option value="it">Information Technology</option>
+<option value="bba">Business Administration</option>
+</select>
+</label>
+</div>
+<!-- Section: Personal Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Full Name</span>
+<div class="relative">
+<input id="fullName" class="form-input flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 pl-11 text-base placeholder:text-[#4c739a] dark:placeholder:text-slate-500 focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow" placeholder="Enter Your Name" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-slate-500 pointer-events-none text-[20px]">person</span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Applying for Reimbursement</span>
+<select id="reimbursementSelect" class="form-select flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 text-base focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow cursor-pointer">
+<option disabled="" selected="" value="">Choose option</option>
+<option value="own">For Own</option>
+<option value="student">For Student</option>
+</select>
+</label>
+</div>
+
+<!-- Section: Student Information (Hidden by default) -->
+<div id="studentInfoSection" class="hidden">
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary shrink-0">school</span>
+<div>
+<span class="text-[#0d141b] dark:text-white font-semibold">Student Information</span>
+<p class="text-sm text-[#4c739a] dark:text-slate-400 mt-1">Please provide the details of the student for whom you are applying.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Student Name <span class="text-red-500">*</span></span>
+<div class="relative">
+<input id="studentName" class="form-input flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 pl-11 text-base placeholder:text-[#4c739a] dark:placeholder:text-slate-500 focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow" placeholder="Enter student's full name" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-slate-500 pointer-events-none text-[20px]">person</span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Student Department <span class="text-red-500">*</span></span>
+<select id="studentDepartment" class="form-select flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 text-base focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow cursor-pointer">
+<option disabled="" selected="" value="">Select Department</option>
+<option value="cst">Computer Science & Technology</option>
+<option value="cse">Computer Science & Engineering</option>
+<option value="ece">Electronics & Communication Engineering</option>
+<option value="me">Mechanical Engineering</option>
+<option value="ee">Electrical Engineering</option>
+<option value="it">Information Technology</option>
+<option value="bba">Business Administration</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Enrollment Number <span class="text-red-500">*</span></span>
+<div class="relative">
+<input id="studentEnrollment" class="form-input flex w-full rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 text-[#0d141b] dark:text-white h-12 px-4 pl-11 text-base placeholder:text-[#4c739a] dark:placeholder:text-slate-500 focus:border-primary focus:ring-primary dark:focus:border-primary transition-shadow" placeholder="e.g., 12345678901234" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-slate-500 pointer-events-none text-[20px]">badge</span>
+</div>
+</label>
+</div>
+</div>
+<hr class="border-t border-[#e7edf3] dark:border-slate-700 my-2"/>
+<!-- Section: Article Type (Radio) -->
+<div class="flex flex-col gap-4">
+<span class="text-[#0d141b] dark:text-slate-200 text-sm font-semibold leading-normal">Type of the Article</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Option 1 -->
+<label class="relative flex items-center p-4 rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 cursor-pointer hover:bg-[#eef4ff] dark:hover:bg-slate-700 hover:border-primary dark:hover:border-primary transition-all group">
+<input class="peer h-5 w-5 border-gray-300 text-primary focus:ring-primary" name="article_type" type="radio" value="journal"/>
+<div class="ml-3 flex items-center gap-2 text-[#0d141b] dark:text-white peer-checked:font-semibold">
+<span class="material-symbols-outlined text-[20px] text-gray-500 dark:text-gray-400 group-hover:text-primary peer-checked:text-primary">article</span>
+<span>Journal</span>
+</div>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
+</label>
+<!-- Option 2 -->
+<label class="relative flex items-center p-4 rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 cursor-pointer hover:bg-[#eef4ff] dark:hover:bg-slate-700 hover:border-primary dark:hover:border-primary transition-all group">
+<input class="peer h-5 w-5 border-gray-300 text-primary focus:ring-primary" name="article_type" type="radio" value="conference"/>
+<div class="ml-3 flex items-center gap-2 text-[#0d141b] dark:text-white peer-checked:font-semibold">
+<span class="material-symbols-outlined text-[20px] text-gray-500 dark:text-gray-400 group-hover:text-primary peer-checked:text-primary">groups</span>
+<span>Conference</span>
+</div>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
+</label>
+<!-- Option 3 -->
+<label class="relative flex items-center p-4 rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 cursor-pointer hover:bg-[#eef4ff] dark:hover:bg-slate-700 hover:border-primary dark:hover:border-primary transition-all group">
+<input class="peer h-5 w-5 border-gray-300 text-primary focus:ring-primary" name="article_type" type="radio" value="book"/>
+<div class="ml-3 flex items-center gap-2 text-[#0d141b] dark:text-white peer-checked:font-semibold">
+<span class="material-symbols-outlined text-[20px] text-gray-500 dark:text-gray-400 group-hover:text-primary peer-checked:text-primary">menu_book</span>
+<span>Book</span>
+</div>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
+</label>
+<!-- Option 4 -->
+<label class="relative flex items-center p-4 rounded-lg border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-800 cursor-pointer hover:bg-[#eef4ff] dark:hover:bg-slate-700 hover:border-primary dark:hover:border-primary transition-all group">
+<input class="peer h-5 w-5 border-gray-300 text-primary focus:ring-primary" name="article_type" type="radio" value="chapter"/>
+<div class="ml-3 flex items-center gap-2 text-[#0d141b] dark:text-white peer-checked:font-semibold">
+<span class="material-symbols-outlined text-[20px] text-gray-500 dark:text-gray-400 group-hover:text-primary peer-checked:text-primary">bookmark</span>
+<span>Book Chapter</span>
+</div>
+<div class="absolute inset-0 border-2 border-transparent peer-checked:border-primary rounded-lg pointer-events-none"></div>
+</label>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-4 pt-4 mt-2">
+<a href="home.html" class="h-12 px-6 rounded-lg text-[#0d141b] dark:text-slate-300 font-bold text-base hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center">
+                                    Cancel
+                                </a>
+<a href="#" onclick="saveAndNavigate()" class="h-12 px-8 rounded-lg bg-[#FFC72C] hover:bg-[#e6b327] text-[#0A254E] font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+<span>Next</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<!-- <div class="flex justify-center py-6">
+<p class="text-[#4c739a] dark:text-slate-500 text-sm text-center">
+                            Need help? Contact the <a class="text-primary hover:underline" href="#">Intellectual Property Rights Cell</a>.
+                        </p>
+</div> -->
+</div>
+</div>
+</main>
+</div>
+
+<script>
+    // Load header from external file
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+
+    // Save form data to localStorage and navigate to next page
+    function saveAndNavigate() {
+        const institutionSelect = document.getElementById('institutionSelect');
+        const departmentSelect = document.getElementById('departmentSelect');
+        const fullName = document.getElementById('fullName');
+        const reimbursementSelect = document.getElementById('reimbursementSelect');
+        const articleType = document.querySelector('input[name="article_type"]:checked');
+        
+        // Get selected text (not value) for display purposes
+        const institutionText = institutionSelect.options[institutionSelect.selectedIndex]?.text || '';
+        const departmentText = departmentSelect.options[departmentSelect.selectedIndex]?.text || '';
+        
+        const formData = {
+            institution: institutionSelect.value,
+            institutionName: institutionText,
+            department: departmentSelect.value,
+            departmentName: departmentText,
+            fullName: fullName.value,
+            reimbursementType: reimbursementSelect.value,
+            articleType: articleType ? articleType.value : '',
+            articleTypeName: articleType ? getArticleTypeName(articleType.value) : ''
+        };
+        
+        // If applying for student, save student details
+        if (reimbursementSelect.value === 'student') {
+            const studentName = document.getElementById('studentName');
+            const studentDepartment = document.getElementById('studentDepartment');
+            const studentEnrollment = document.getElementById('studentEnrollment');
+            const studentDeptText = studentDepartment.options[studentDepartment.selectedIndex]?.text || '';
+            
+            formData.studentName = studentName.value;
+            formData.studentDepartment = studentDepartment.value;
+            formData.studentDepartmentName = studentDeptText;
+            formData.studentEnrollment = studentEnrollment.value;
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('patentApplicationData', JSON.stringify(formData));
+        
+        // Navigate to next page
+        window.location.href = 'application_pg2.html';
+    }
+    
+    // Helper function to get article type display name
+    function getArticleTypeName(value) {
+        const types = {
+            'journal': 'Journal',
+            'conference': 'Conference',
+            'book': 'Book',
+            'chapter': 'Book Chapter'
+        };
+        return types[value] || value;
+    }
+    
+    // Load saved data if exists (for back navigation)
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedData = localStorage.getItem('patentApplicationData');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            
+            if (data.institution) document.getElementById('institutionSelect').value = data.institution;
+            if (data.department) document.getElementById('departmentSelect').value = data.department;
+            if (data.fullName) document.getElementById('fullName').value = data.fullName;
+            if (data.reimbursementType) {
+                document.getElementById('reimbursementSelect').value = data.reimbursementType;
+                // Trigger change event to show student fields if needed
+                document.getElementById('reimbursementSelect').dispatchEvent(new Event('change'));
+            }
+            if (data.articleType) {
+                const radioBtn = document.querySelector(`input[name="article_type"][value="${data.articleType}"]`);
+                if (radioBtn) radioBtn.checked = true;
+            }
+            
+            // Load student data if exists
+            if (data.studentName) document.getElementById('studentName').value = data.studentName;
+            if (data.studentDepartment) document.getElementById('studentDepartment').value = data.studentDepartment;
+            if (data.studentEnrollment) document.getElementById('studentEnrollment').value = data.studentEnrollment;
+        }
+    });
+
+    // Toggle Student Information Section
+    document.getElementById('reimbursementSelect').addEventListener('change', function() {
+        const studentInfoSection = document.getElementById('studentInfoSection');
+        const studentName = document.getElementById('studentName');
+        const studentDepartment = document.getElementById('studentDepartment');
+        const studentEnrollment = document.getElementById('studentEnrollment');
+        
+        if (this.value === 'student') {
+            studentInfoSection.classList.remove('hidden');
+            studentInfoSection.classList.add('animate-fadeIn');
+            // Make fields required
+            studentName.required = true;
+            studentDepartment.required = true;
+            studentEnrollment.required = true;
+        } else {
+            studentInfoSection.classList.add('hidden');
+            // Remove required and clear values
+            studentName.required = false;
+            studentDepartment.required = false;
+            studentEnrollment.required = false;
+            studentName.value = '';
+            studentDepartment.value = '';
+            studentEnrollment.value = '';
+        }
+    });
+</script>
+
+</body></html>

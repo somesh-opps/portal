@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IEM-UEM Patent Filing Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FFC72C", // The yellow accent
+              secondary: "#003366", // The deep blue
+              "background-light": "#F9F9F9",
+              "background-dark": "#121212",
+              "text-dark": "#333333",
+              "text-light": "#EEEEEE",
+              "navy-dark": "#0A254E", // Footer/Header blue
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              xl: "1rem",
+              "2xl": "1.5rem",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="font-sans text-text-dark dark:text-text-light bg-background-light dark:bg-background-dark antialiased selection:bg-primary selection:text-navy-dark">
+<header class="bg-navy-dark dark:bg-black text-white w-full border-b border-primary/20 sticky top-0 z-50 shadow-sm">
+<div class="w-full px-8 sm:px-12 lg:px-16">
+<div class="flex justify-between items-center h-20">
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0 bg-white p-1 rounded">
+<img src="UEM-Symbol.png" alt="UEM Logo" class="h-10 w-auto object-contain">
+</div>
+<div class="flex-shrink-0 bg-white p-1 rounded">
+<img src="iem logo.png" alt="IEM Logo" class="h-10 w-auto object-contain">
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-wide leading-tight">IEM-UEM</span>
+<span class="text-xs font-light tracking-widest text-gray-300 uppercase">Patent Filing Portal</span>
+</div>
+</div>
+<div class="flex items-center">
+<a href="login.html" class="bg-primary hover:bg-yellow-400 text-navy-dark font-bold py-2 px-6 rounded-full shadow-md transform transition hover:-translate-y-0.5 hover:shadow-lg">
+Login
+</a>
+</div>
+<div class="md:hidden flex items-center">
+<button class="text-gray-300 hover:text-white focus:outline-none" type="button">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<section class="relative bg-navy-dark dark:bg-gray-900 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Laboratory background with researchers" class="w-full h-full object-cover opacity-30 mix-blend-overlay" src="uem_image.jpg"/>
+<div class="absolute inset-0 bg-navy-dark/70 dark:bg-black/70 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent dark:from-gray-900"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center flex flex-col items-center">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Turn Your Ideas into Inventions.<br/>
+            </h1>
+<p class="mt-4 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+                Secure your intellectual property with our streamlined university portal.
+            </p>
+            <a href="login.html" class="bg-primary hover:bg-yellow-400 text-navy-dark font-bold py-4 px-10 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl text-lg">
+                Start Your Application
+            </a>
+</div>
+</section>
+<section class="py-20 bg-[#FDFDFD] dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center mb-6 border border-gray-100 dark:border-gray-700">
+<span class="material-icons text-3xl text-primary">assignment_turned_in</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Streamlined Process</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                        Create inventions in a streamlined process conceived for efficiency and ease of use.
+                    </p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center mb-6 border border-gray-100 dark:border-gray-700">
+<span class="material-icons text-3xl text-primary">psychology</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Expert Guidance</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                        Expert guidance implementation aligns your internal creativity with professional research standards.
+                    </p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center mb-6 border border-gray-100 dark:border-gray-700">
+<span class="material-icons text-3xl text-primary">lock_person</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Secure Submission</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                        Secure submission processes ensure your intellectual property is protected throughout the filing.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-light dark:bg-[#1a1a1a]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">The Patent Filing Journey</h2>
+<div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-6">
+<div class="relative w-full md:w-64 h-32 bg-navy-dark dark:bg-gray-800 rounded-3xl flex flex-col items-center justify-center p-4 text-center shadow-lg hover:shadow-xl transition-shadow group">
+<h4 class="text-white font-bold text-lg mb-1 group-hover:text-primary transition-colors">1. Submit Disclosure</h4>
+<p class="text-gray-300 text-xs font-light">Initial documentation</p>
+</div>
+<div class="hidden md:block text-gray-400 dark:text-gray-600">
+<span class="material-icons text-3xl">arrow_forward</span>
+</div>
+<div class="md:hidden text-gray-400 dark:text-gray-600 transform rotate-90">
+<span class="material-icons text-3xl">arrow_forward</span>
+</div>
+<div class="relative w-full md:w-64 h-32 bg-navy-dark dark:bg-gray-800 rounded-3xl flex flex-col items-center justify-center p-4 text-center shadow-lg hover:shadow-xl transition-shadow group">
+<h4 class="text-white font-bold text-lg mb-1 group-hover:text-primary transition-colors">2. Review &amp;<br/>Assessment</h4>
+<p class="text-gray-300 text-xs font-light">Validation committee</p>
+</div>
+<div class="hidden md:block text-gray-400 dark:text-gray-600">
+<span class="material-icons text-3xl">arrow_forward</span>
+</div>
+<div class="md:hidden text-gray-400 dark:text-gray-600 transform rotate-90">
+<span class="material-icons text-3xl">arrow_forward</span>
+</div>
+<div class="relative w-full md:w-64 h-32 bg-primary rounded-3xl flex flex-col items-center justify-center p-4 text-center shadow-lg shadow-yellow-500/20 hover:shadow-xl transition-shadow ring-4 ring-white dark:ring-gray-700">
+<h4 class="text-navy-dark font-bold text-lg mb-1">3. Patent Drafting</h4>
+<p class="text-navy-dark/80 text-xs font-medium">Legal formalization</p>
+</div>
+<div class="hidden md:block text-gray-400 dark:text-gray-600">
+<span class="material-icons text-3xl">arrow_forward</span>
+</div>
+<div class="md:hidden text-gray-400 dark:text-gray-600 transform rotate-90">
+<span class="material-icons text-3xl">arrow_forward</span>
+</div>
+<div class="relative w-full md:w-64 h-32 bg-navy-dark dark:bg-gray-800 rounded-3xl flex flex-col items-center justify-center p-4 text-center shadow-lg hover:shadow-xl transition-shadow group">
+<h4 class="text-white font-bold text-lg mb-1 group-hover:text-primary transition-colors">4. Filing with USPTO</h4>
+<p class="text-gray-300 text-xs font-light">Official submission</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<script>
+    // Load footer from external file
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+</script>
+
+</body></html>

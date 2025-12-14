@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Submission Certificate - University Patent Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-yellow': '#FFC72C',
+                        'navy-dark': '#0A254E',
+                        'background-light': '#F5F7FA',
+                        'gold': '#C5A059'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .certificate-font { font-family: 'Playfair Display', serif; }
+        .certificate-border {
+            border: 3px solid #0A254E;
+            box-shadow: inset 0 0 0 8px #fff, inset 0 0 0 10px #C5A059;
+        }
+        .gold-text { color: #C5A059; }
+        @media print {
+            .no-print { display: none !important; }
+            .certificate-container { box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-background-light min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 pb-8 px-4 md:px-10">
+        <div class="max-w-5xl mx-auto">
+            
+            <!-- Success Message -->
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-8 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-green-600 text-2xl">check_circle</span>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-green-800 mb-1">Application Submitted Successfully!</h2>
+                    <p class="text-green-700">Your patent application has been submitted and is now under review. Please download your submission certificate for your records.</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-4 mb-8 no-print">
+                <button onclick="downloadPDF()" class="inline-flex items-center gap-2 bg-[#FFC72C] text-[#0A254E] font-semibold px-6 py-3 rounded-lg hover:bg-[#e6b327] transition shadow-md">
+                    <span class="material-symbols-outlined">download</span>
+                    Download PDF
+                </button>
+                <button onclick="window.print()" class="inline-flex items-center gap-2 border-2 border-navy-dark text-navy-dark font-semibold px-6 py-3 rounded-lg hover:bg-navy-dark hover:text-white transition">
+                    <span class="material-symbols-outlined">print</span>
+                    Print Certificate
+                </button>
+                <a href="home.html" class="inline-flex items-center gap-2 border-2 border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition ml-auto">
+                    <span class="material-symbols-outlined">home</span>
+                    Back to Home
+                </a>
+            </div>
+
+            <!-- Certificate Container -->
+            <div id="certificate" class="certificate-container bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="certificate-border p-8 md:p-12 bg-[#FFFEF8]">
+                    
+                    <!-- Certificate Header -->
+                    <div class="text-center mb-8">
+                        <div class="flex justify-center items-center gap-4 mb-4">
+                            <img src="UEM-Symbol.png" alt="UEM Logo" class="h-20 w-auto">
+                        </div>
+                        <h1 class="certificate-font text-3xl md:text-4xl font-bold text-navy-dark mb-2">UNIVERSITY OF ENGINEERING & MANAGEMENT</h1>
+                        <p class="text-gray-600 text-lg">Intellectual Property Rights Cell</p>
+                    </div>
+
+                    <!-- Certificate Title -->
+                    <div class="text-center mb-10">
+                        <div class="inline-block">
+                            <h2 class="certificate-font text-2xl md:text-3xl font-bold gold-text tracking-wide">PATENT APPLICATION</h2>
+                            <h3 class="certificate-font text-xl md:text-2xl font-bold text-navy-dark">Submission Certificate</h3>
+                            <div class="h-1 bg-gradient-to-r from-transparent via-gold to-transparent mt-3"></div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Body -->
+                    <div class="text-center mb-10">
+                        <p class="text-gray-700 text-lg mb-6">This is to certify that</p>
+                        <p id="applicantName" class="certificate-font text-2xl md:text-3xl font-bold text-navy-dark mb-2 border-b-2 border-dotted border-gray-400 pb-2 inline-block px-8">Applicant Name</p>
+                        <!-- Supervisor Section (shown only for student applications) -->
+                        <div id="supervisorSection" class="hidden mt-4 mb-6">
+                            <p class="text-gray-600 text-base">under the supervision of</p>
+                            <p id="supervisorName" class="certificate-font text-xl font-semibold text-navy-dark mt-2">Supervisor Name</p>
+                            <p id="supervisorDepartment" class="text-gray-500 text-sm">Department</p>
+                        </div>
+                        <p class="text-gray-700 text-lg mb-4 mt-6">has successfully submitted a patent application for</p>
+                    </div>
+
+                    <!-- Patent Details Card -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8 mb-10 max-w-3xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Application ID</label>
+                                <p id="applicationId" class="text-lg font-bold text-navy-dark mt-1">ID</p>
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Submission Date</label>
+                                <p id="submissionDate" class="text-lg font-bold text-navy-dark mt-1">Date</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Patent Title</label>
+                                <p id="patentTitle" class="text-xl font-bold text-navy-dark mt-1">Title</p>
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Patent Type</label>
+                                <p id="patentType" class="text-lg font-bold text-navy-dark mt-1">Article Type</p>
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Indexing</label>
+                                <p id="patentDomain" class="text-lg font-bold text-navy-dark mt-1">Article Indexing</p>
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Department</label>
+                                <p id="department" class="text-lg font-bold text-navy-dark mt-1">Department</p>
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</label>
+                                <p class="text-lg font-bold text-yellow-600 mt-1 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                    Status
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Abstract/Description -->
+                        <!-- <div class="mt-6 pt-6 border-t border-gray-200">
+                            <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Abstract / Description</label>
+                            <p id="patentAbstract" class="text-gray-700 mt-2 leading-relaxed">
+                                A comprehensive IoT-based system designed for real-time monitoring of water quality parameters including pH levels, turbidity, dissolved oxygen, and temperature. The system utilizes Arduino microcontrollers with various sensors and provides cloud-based data visualization and alert mechanisms for contamination detection.
+                            </p>
+                        </div> -->
+                    </div>
+
+                    <!-- QR Code & Verification -->
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 max-w-3xl mx-auto">
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 h-24 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center">
+                                <!-- QR Code Placeholder - In production, generate actual QR -->
+                                <svg viewBox="0 0 100 100" class="w-20 h-20">
+                                    <rect width="100" height="100" fill="white"/>
+                                    <g fill="#0A254E">
+                                        <rect x="10" y="10" width="25" height="25"/>
+                                        <rect x="65" y="10" width="25" height="25"/>
+                                        <rect x="10" y="65" width="25" height="25"/>
+                                        <rect x="15" y="15" width="15" height="15" fill="white"/>
+                                        <rect x="70" y="15" width="15" height="15" fill="white"/>
+                                        <rect x="15" y="70" width="15" height="15" fill="white"/>
+                                        <rect x="20" y="20" width="5" height="5"/>
+                                        <rect x="75" y="20" width="5" height="5"/>
+                                        <rect x="20" y="75" width="5" height="5"/>
+                                        <rect x="40" y="10" width="5" height="5"/>
+                                        <rect x="50" y="10" width="5" height="5"/>
+                                        <rect x="40" y="20" width="10" height="5"/>
+                                        <rect x="40" y="30" width="5" height="10"/>
+                                        <rect x="50" y="35" width="10" height="5"/>
+                                        <rect x="10" y="40" width="5" height="5"/>
+                                        <rect x="20" y="45" width="10" height="5"/>
+                                        <rect x="65" y="40" width="5" height="10"/>
+                                        <rect x="75" y="45" width="15" height="5"/>
+                                        <rect x="80" y="55" width="10" height="5"/>
+                                        <rect x="40" y="50" width="15" height="5"/>
+                                        <rect x="45" y="55" width="5" height="10"/>
+                                        <rect x="55" y="60" width="5" height="5"/>
+                                        <rect x="65" y="55" width="5" height="5"/>
+                                        <rect x="40" y="70" width="5" height="5"/>
+                                        <rect x="50" y="65" width="5" height="15"/>
+                                        <rect x="60" y="70" width="15" height="5"/>
+                                        <rect x="65" y="80" width="10" height="5"/>
+                                        <rect x="80" y="75" width="5" height="10"/>
+                                        <rect x="40" y="85" width="5" height="5"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Verification Code</p>
+                                <p id="verificationCode" class="font-mono text-lg font-bold text-navy-dark">UEM-PAT-2024-006-XK7M</p>
+                                <p class="text-xs text-gray-500 mt-1">Scan QR or use code to verify</p>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Digital Signature</p>
+                            <div class="border-b-2 border-navy-dark w-48 mb-1"></div>
+                            <p class="text-sm font-medium text-navy-dark">IPR Cell, UEM</p>
+                            <p class="text-xs text-gray-500">Auto-generated certificate</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer Notes -->
+                    <div class="border-t-2 border-gray-200 pt-6 text-center">
+                        <p class="text-sm text-gray-600 mb-2">
+                            This certificate is electronically generated and does not require a physical signature.
+                        </p>
+                        <!-- <p class="text-xs text-gray-500">
+                            For verification, please visit <span class="text-navy-dark font-medium">portal.uem.edu.in/verify</span> or contact IPR Cell at <span class="text-navy-dark font-medium">ipr@uem.edu.in</span>
+                        </p> -->
+                        <div class="flex justify-center items-center gap-2 mt-4 text-xs text-gray-400">
+                            <span>Document ID: DOC-2024-1214-006</span>
+                            <span>•</span>
+                            <span id="generatedAt">Generated on: December 14, 2024 at 10:30 AM</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <!-- <div class="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6 no-print">
+                <h3 class="font-bold text-navy-dark mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-blue-600">info</span>
+                    What's Next?
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                        Your application has been received and assigned to a reviewer.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-yellow-600 text-lg mt-0.5">schedule</span>
+                        Expected review time: 7-14 business days.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-blue-600 text-lg mt-0.5">notifications</span>
+                        You will receive email notifications about status updates.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-navy-dark text-lg mt-0.5">track_changes</span>
+                        Track your application status from the Dashboard.
+                    </li>
+                </ul>
+            </div> -->
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load header from external file
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load footer from external file
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // ============================================
+        // LOAD APPLICATION DATA FROM LOCALSTORAGE
+        // ============================================
+        
+        // Load and display application data from localStorage
+        function loadApplicationData() {
+            const savedData = localStorage.getItem('patentApplicationData');
+            
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                populateCertificate(data);
+                
+                // Clear the form data from localStorage after loading
+                // This resets the form for new applications
+                localStorage.removeItem('patentApplicationData');
+            }
+            
+            // Set current date/time for generation timestamp
+            const now = new Date();
+            document.getElementById('generatedAt').textContent = `Generated on: ${now.toLocaleDateString('en-IN', { 
+                month: 'long', day: 'numeric', year: 'numeric' 
+            })} at ${now.toLocaleTimeString('en-IN', { 
+                hour: 'numeric', minute: '2-digit', hour12: true 
+            })}`;
+        }
+
+        // Populate certificate with data from form
+        function populateCertificate(data) {
+            // Helper function to set text or show "Not provided"
+            const setFieldValue = (elementId, value, fallback = 'Not provided') => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.textContent = value && value.trim() ? value : fallback;
+                    // Add styling for "Not provided" text
+                    if (!value || !value.trim()) {
+                        element.classList.add('text-gray-400', 'italic');
+                    }
+                }
+            };
+            
+            // Check if this is a student application
+            const isStudentApplication = data.reimbursementType === 'student';
+            
+            // Applicant Name - show student name if applying for student, otherwise full name
+            if (isStudentApplication && data.studentName) {
+                setFieldValue('applicantName', data.studentName);
+                
+                // Show supervisor section with teacher's details
+                const supervisorSection = document.getElementById('supervisorSection');
+                supervisorSection.classList.remove('hidden');
+                
+                setFieldValue('supervisorName', data.fullName);
+                setFieldValue('supervisorDepartment', data.departmentName);
+            } else {
+                setFieldValue('applicantName', data.fullName);
+            }
+            
+            // Application ID
+            if (data.applicationId) {
+                document.getElementById('applicationId').textContent = '#' + data.applicationId;
+            } else {
+                setFieldValue('applicationId', null, '#Not generated');
+            }
+            
+            // Article/Patent Title
+            setFieldValue('patentTitle', data.articleTitle);
+            
+            // Article Type (Journal, Conference, Book, Book Chapter)
+            setFieldValue('patentType', data.articleTypeName);
+            
+            // Indexing (SCI, SCIE, Scopus, etc.)
+            setFieldValue('patentDomain', data.articleIndexingName);
+            
+            // Department - show student department if applying for student
+            if (isStudentApplication && data.studentDepartmentName) {
+                setFieldValue('department', data.studentDepartmentName);
+            } else {
+                setFieldValue('department', data.departmentName);
+            }
+            
+            // Submission Date
+            if (data.submissionDate) {
+                document.getElementById('submissionDate').textContent = new Date(data.submissionDate).toLocaleDateString('en-IN', {
+                    month: 'long', day: 'numeric', year: 'numeric'
+                });
+            } else {
+                setFieldValue('submissionDate', null);
+            }
+            
+            // Verification Code
+            if (data.verificationCode) {
+                document.getElementById('verificationCode').textContent = data.verificationCode;
+            } else {
+                setFieldValue('verificationCode', null, 'Not generated');
+            }
+        }
+
+        // Download as PDF
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const certificate = document.getElementById('certificate');
+            
+            // Show loading
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Generating...';
+            btn.disabled = true;
+
+            try {
+                const canvas = await html2canvas(certificate, {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#FFFEF8'
+                });
+
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = canvas.width;
+                const imgHeight = canvas.height;
+                const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                const imgX = (pdfWidth - imgWidth * ratio) / 2;
+                const imgY = 10;
+
+                pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+                
+                const applicationId = document.getElementById('applicationId').textContent.replace('#', '');
+                pdf.save(`Patent_Certificate_${applicationId}.pdf`);
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF. Please try printing instead.');
+            }
+
+            // Restore button
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadApplicationData);
+    </script>
+</body>
+</html>
