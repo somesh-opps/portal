@@ -18,9 +18,9 @@ function saveAndNavigate() {
     const reimbursementSelect = document.getElementById('reimbursementSelect');
     const articleType = document.querySelector('input[name="article_type"]:checked');
     
-    // Get selected text (not value) for display purposes
-    const institutionText = institutionSelect.options[institutionSelect.selectedIndex]?.text || '';
-    const departmentText = departmentSelect.options[departmentSelect.selectedIndex]?.text || '';
+    // Get selected text (not value) for display purposes - only if value is selected
+    const institutionText = institutionSelect.value ? institutionSelect.options[institutionSelect.selectedIndex]?.text : '';
+    const departmentText = departmentSelect.value ? departmentSelect.options[departmentSelect.selectedIndex]?.text : '';
     
     const formData = {
         institution: institutionSelect.value,
@@ -38,7 +38,7 @@ function saveAndNavigate() {
         const studentName = document.getElementById('studentName');
         const studentDepartment = document.getElementById('studentDepartment');
         const studentEnrollment = document.getElementById('studentEnrollment');
-        const studentDeptText = studentDepartment.options[studentDepartment.selectedIndex]?.text || '';
+        const studentDeptText = studentDepartment.value ? studentDepartment.options[studentDepartment.selectedIndex]?.text : '';
         
         formData.studentName = studentName.value;
         formData.studentDepartment = studentDepartment.value;

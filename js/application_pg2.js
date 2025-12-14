@@ -35,8 +35,8 @@ function submitApplication() {
     // Get existing data from page 1
     let formData = JSON.parse(localStorage.getItem('patentApplicationData') || '{}');
     
-    // Get indexing text
-    const indexingText = articleIndexing.options[articleIndexing.selectedIndex]?.text || '';
+    // Get indexing text - only if value is selected
+    const indexingText = articleIndexing.value ? articleIndexing.options[articleIndexing.selectedIndex]?.text : '';
     
     // Add page 2 data
     formData.articleTitle = articleTitle.value;
